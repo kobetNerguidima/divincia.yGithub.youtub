@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Enseignant - Université [Nom de votre Université]</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #0056b3; 
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #004085; 
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.content-section {
+    margin-bottom: 40px;
+    padding-top: 20px; 
+}
+
+.section-title {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #0056b3;
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.card p {
+    font-size: 0.95em;
+    color: #555;
+    min-height: 40px; 
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff; 
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3; 
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+@media (max-width: 768px) {
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr; 
+    }
+}
+    </style>
+<body>
+    <header>
+        <h1>Espace Enseignant</h1>
+        <nav>
+            <ul>
+                <li><a href="#pedagogie">Pédagogie & Cours</a></li>
+                <li><a href="#recherche">Recherche & Publications</a></li>
+                <li><a href="#admin">Administration & Carrière</a></li>
+                <li><a href="#support">Support & Ressources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="pedagogie" class="content-section">
+            <h2 class="section-title">Pédagogie & Gestion des Cours</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Plateformes d'Apprentissage</h3>
+                    <p>Accès rapide à Moodle, Blackboard, et autres outils LMS.</p>
+                    <a href="plateformes-apprentissage.html" class="button">Accéder aux plateformes</a>
+                </div>
+                <div class="card">
+                    <h3>Programmes & Syllabus</h3>
+                    <p>Modèles de syllabus, directives pour la création de cours.</p>
+                    <a href="programmes-syllabus.html" class="button">Consulter les directives</a>
+                </div>
+                <div class="card">
+                    <h3>Évaluation & Notation</h3>
+                    <p>Outils de notation, politiques d'évaluation des étudiants.</p>
+                    <a href="evaluation-notation.html" class="button">Consulter les politiques</a>
+                </div>
+                 <div class="card">
+                    <h3>Outils Pédagogiques</h3>
+                    <p>Ressources pour l'innovation pédagogique et le support technologique.</p>
+                    <a href="outils-pedagogiques.html" class="button">Découvrir les outils</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="recherche" class="content-section">
+            <h2 class="section-title">Recherche & Publications</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Subventions & Financements</h3>
+                    <p>Informations sur les opportunités de financement de recherche.</p>
+                    <a href="subventions.html" class="button">Voir les appels</a>
+                </div>
+                <div class="card">
+                    <h3>Publications & Revues</h3>
+                    <p>Directives pour la publication, accès aux revues universitaires.</p>
+                    <a href="publications.html" class="button">Accéder aux ressources</a>
+                </div>
+                <div class="card">
+                    <h3>Laboratoires & Équipements</h3>
+                    <p>Informations sur les laboratoires disponibles et la réservation d'équipements.</p>
+                    <a href="laboratoires.html" class="button">Explorer les laboratoires</a>
+                </div>
+                 <div class="card">
+                    <h3>Conférences & Colloques</h3>
+                    <p>Annonces de conférences, soutien à la participation et à l'organisation.</p>
+                    <a href="conf-colloques.html" class="button">Voir le calendrier</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="content-section">
+            <h2 class="section-title">Administration & Carrière</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Portail RH & Salaires</h3>
+                    <p>Accès aux informations de paie, congés et gestion de carrière.</p>
+                    <a href="portail-rh.html" class="button">Accéder au portail</a>
+                </div>
+                <div class="card">
+                    <h3>Règlements Internes</h3>
+                    <p>Consultation des politiques et procédures administratives de l'université.</p>
+                    <a href="reglements-internes.html" class="button">Consulter les règlements</a>
+                </div>
+                 <div class="card">
+                    <h3>Développement de Carrière</h3>
+                    <p>Opportunités de formation continue et d'avancement professionnel.</p>
+                    <a href="dev-carriere.html" class="button">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="content-section">
+            <h2 class="section-title">Support & Ressources</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Support Informatique</h3>
+                    <p>Aide technique, installation de logiciels, gestion des comptes.</p>
+                    <a href="support-informatique.html" class="button">Contacter le support</a>
+                </div>
+                <div class="card">
+                    <h3>Contacts Utiles</h3>
+                    <p>Annuaire des services administratifs et académiques.</p>
+                    <a href="contacts-enseignants.html" class="button">Voir l'annuaire</a>
+                </div>
+                <div class="card">
+                    <h3>Santé & Bien-être</h3>
+                    <p>Ressources et services de soutien pour le personnel enseignant.</p>
+                    <a href="sante-enseignants.html" class="button">Découvrir les services</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Université ESTM JeffersonNerguidima. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* style.css */
+#student-life {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+#student-life h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+#student-life h3 {
+    color: #0056b3;
+    margin-top: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+#student-life ul, #student-life ol {
+    list-style-position: inside;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+#student-life ul li, #student-life ol li {
+    margin-bottom: 8px;
+}
+
+#student-life a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#student-life a:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour la galerie d'images (pour améliorer le responsive) */
+.gallery img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Si tu veux que les images s'affichent mieux sur les petits écrans */
+@media (max-width: 768px) {
+    .gallery img {
+        width: calc(50% - 15px) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery img {
+        width: 100% !important;
+    }
+}
+</style>
+<body>
+    <section id="student-life">
+    <h2>Vie des Étudiants</h2>
+    <p>
+        Plongez au cœur de l'expérience étudiante enrichissante et dynamique que notre établissement propose. Nous nous engageons à créer un environnement où chaque étudiant peut s'épanouir, découvrir de nouvelles passions et tisser des liens durables. Que ce soit à travers les activités académiques, les engagements associatifs ou les événements sociaux, la vie sur le campus est une aventure constante.
+    </p>
+
+    ---
+
+    <h3>Activités et Associations</h3>
+    <p>
+        Notre campus fourmille d'activités et d'associations pour tous les goûts. Participez, innovez, et laissez votre marque !
+    </p>
+    <ul>
+        <li>*Clubs Sportifs :* Du football au basketball, en passant par la natation et le fitness, nos installations modernes vous attendent.</li>
+        <li>*Associations Culturelles et Artistiques :* Exprimez votre créativité à travers le théâtre, la musique, la danse, ou les arts visuels.</li>
+        <li>*Groupes de Débat et de Lecture :* Aiguisez votre esprit critique et partagez vos idées avec des pairs passionnés.</li>
+        <li>*Projets Communautaires et Bénévolat :* Contribuez positivement à la société en vous engageant dans des initiatives solidaires.</li>
+        <li>*Événements Sociaux et Festivités :* Participez à nos soirées à thème, concerts, et célébrations pour des moments inoubliables.</li>
+    </ul>
+
+    ---
+
+    <h3>Services Essentiels pour les Étudiants</h3>
+    <p>
+        Pour garantir votre bien-être et votre réussite, nous mettons à votre disposition une gamme complète de services de soutien.
+    </p>
+    <ol>
+        <li>*Orientation et Conseil Pédagogique :* Un accompagnement personnalisé pour vos choix de carrière et votre parcours académique.</li>
+        <li>*Services de Santé et de Bien-être :* Accès à des professionnels de la santé, conseils en nutrition et soutien psychologique.</li>
+        <li>*Aide à la Recherche de Logement :* Un soutien précieux pour trouver l'hébergement qui vous convient.</li>
+        <li>*Soutien à l'Emploi et aux Stages :* Des ateliers, des forums et un réseau pour vous aider à démarrer votre carrière.</li>
+        <li>*Restauration Universitaire :* Des options de repas variées et équilibrées, adaptées à tous les régimes.</li>
+    </ol>
+
+    ---
+
+    <h3>Moments Clés de la Vie sur le Campus</h3>
+    <div class="gallery" style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 15px;">
+        <img src="https://googleusercontent.com/image_collection/image_retrieval/13919109908153196518" alt="Groupe d'étudiants se réunissant sur le campus" style="width: calc(33% - 15px); max-width: 300px; height: auto; border-radius: 8px; object-fit: cover;">
+        <img src="images/library_collaboration.jpg" alt="Étudiants collaborant à la bibliothèque" style="width: calc(33% - 15px); max-width: 300px; height: auto; border-radius: 8px; object-fit: cover;">
+        <img src="images/student_sports_day.jpg" alt="Journée sportive étudiante" style="width: calc(33% - 15px); max-width: 300px; height: auto; border-radius: 8px; object-fit: cover;">
+        <img src="images/cultural_festival.jpg" alt="Festival culturel étudiant" style="width: calc(33% - 15px); max-width: 300px; height: auto; border-radius: 8px; object-fit: cover;">
+        <img src="images/graduation_celebration.jpg" alt="Célébration de remise des diplômes" style="width: calc(33% - 15px); max-width: 300px; height: auto; border-radius: 8px; object-fit: cover;">
+        <img src="images/campus_life_event.jpg" alt="Événement de la vie étudiante" style="width: calc(33% - 15px); max-width: 300px; height: auto; border-radius: 8px; object-fit: cover;">
+    </div>
+    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 15px;">
+        Découvrez en images la diversité et l'effervescence de notre vie étudiante.
+    </p>
+
+    ---
+
+    <h3>Découvrez la Vie Étudiante en Vidéo</h3>
+    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin-top: 20px;">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">
+        Immersion vidéo dans le quotidien de nos étudiants.
+    </p>
+    ---
+
+    <h3>Ressources et Liens Utiles</h3>
+    <p>
+        Accédez rapidement aux informations essentielles pour faciliter votre parcours.
+    </p>
+    <ul>
+        <li><a href="https://example.com/calendar" target="_blank">Calendrier des événements et activités</a></li>
+        <li><a href="https://example.com/associations" target="_blank">Annuaire des associations étudiantes</a></li>
+        <li><a href="https://example.com/housing" target="_blank">Informations complètes sur le logement étudiant</a></li>
+        <li><a href="https://example.com/contact-support" target="_blank">Contacter le service de soutien aux étudiants</a></li>
+        <li><a href="https://example.com/career-services" target="_blank">Services d'orientation et d'aide à l'emploi</a></li>
+    </ul>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,476 @@
+/* Variables CSS */
+:root {
+    --primary-admin-color: #004085; /* Bleu plus foncé pour l'admin */
+    --secondary-admin-color: #0056b3; /* Bleu standard */
+    --text-admin-color: #333;
+    --sidebar-bg: #2c3e50; /* Couleur sombre pour la sidebar */
+    --sidebar-text: #ecf0f1;
+    --sidebar-hover: #34495e;
+    --navbar-bg: #ffffff;
+    --border-admin: #e0e0e0;
+    --card-bg: #ffffff;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-admin-color);
+    background-color: #f4f7f6;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-admin-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: width 0.3s ease;
+    flex-shrink: 0; /* Ne pas réduire la taille de la sidebar */
+}
+
+.dashboard-container.sidebar-collapsed .sidebar {
+    width: 60px; /* Largeur réduite pour la sidebar collapse */
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+.sidebar-header h2 {
+    font-size: 1.6em;
+    color: var(--sidebar-text);
+    white-space: nowrap; /* Empêche le texte de se briser */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboard-container.sidebar-collapsed .sidebar-header h2 {
+    display: none; /* Cache le texte quand la sidebar est repliée */
+}
+
+.sidebar-header h2 .fa-university {
+    margin-right: 10px;
+}
+
+.dashboard-container.sidebar-collapsed .sidebar-header h2 .fa-university {
+    margin-right: 0; /* Pas de marge quand le texte est caché */
+}
+
+
+.sidebar-nav ul li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--sidebar-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a.active {
+    background-color: var(--sidebar-hover);
+    color: var(--secondary-admin-color);
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 15px;
+    font-size: 1.1em;
+}
+
+/* Icône de flèche pour les sous-menus */
+.dropdown-icon {
+    margin-left: auto; /* Pousse l'icône à droite */
+    transition: transform 0.3s ease;
+}
+
+.menu-item-has-children.active > a .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Sous-menus */
+.submenu {
+    display: none; /* Caché par défaut */
+    background-color: #34495e; /* Couleur légèrement différente */
+    padding-left: 40px; /* Indentation */
+}
+
+.menu-item-has-children.active .submenu {
+    display: block; /* Affiché quand le parent est actif */
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    font-size: 0.95em;
+}
+
+.dashboard-container.sidebar-collapsed .sidebar-nav ul li a span {
+    display: none; /* Cache le texte des liens quand la sidebar est repliée */
+}
+.dashboard-container.sidebar-collapsed .sidebar-nav ul li a .dropdown-icon {
+    display: none; /* Cache les flèches des sous-menus repliés */
+}
+.dashboard-container.sidebar-collapsed .sidebar-nav ul li a {
+    justify-content: center; /* Centre les icônes */
+    padding: 12px 0;
+}
+.dashboard-container.sidebar-collapsed .sidebar-nav ul li a i {
+    margin-right: 0; /* Pas de marge pour les icônes seules */
+}
+.dashboard-container.sidebar-collapsed .submenu {
+    display: none !important; /* Force le sous-menu à être caché en mode replié */
+}
+
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1; /* Prend l'espace restant */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--navbar-bg);
+    padding: 15px 30px;
+    border-bottom: 1px solid var(--border-admin);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left h2 {
+    font-size: 1.8em;
+    color: var(--primary-admin-color);
+    margin: 0 0 0 20px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    color: var(--text-admin-color);
+}
+
+.user-info i {
+    font-size: 1.5em;
+    margin-left: 10px;
+    color: var(--primary-admin-color);
+}
+
+.logout-btn {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+.logout-btn i {
+    margin-right: 5px;
+}
+
+.toggle-sidebar {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--primary-admin-color);
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+
+/* Content Area */
+.content-area {
+    padding: 30px;
+    flex-grow: 1;
+    background-color: #f4f7f6; /* Couleur de fond du contenu */
+}
+
+/* Dashboard Overview */
+.dashboard-overview {
+    margin-bottom: 40px;
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card i {
+    font-size: 3em;
+    color: var(--secondary-admin-color);
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    color: var(--text-admin-color);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-admin-color);
+}
+
+.recent-activity {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.recent-activity h3 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    color: var(--primary-admin-color);
+    border-bottom: 2px solid var(--border-admin);
+    padding-bottom: 10px;
+}
+
+.recent-activity ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+    color: var(--light-text-color);
+}
+
+.recent-activity ul li i {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.text-success { color: var(--success-color); }
+.text-info { color: var(--info-color); }
+.text-warning { color: var(--warning-color); }
+.text-primary { color: var(--primary-admin-color); }
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 60px; /* Réduit la sidebar par défaut sur les écrans moyens */
+    }
+    .sidebar-header h2 {
+        display: none;
+    }
+    .sidebar-header h2 .fa-university {
+        margin-right: 0;
+    }
+    .sidebar-nav ul li a span,
+    .dropdown-icon {
+        display: none;
+    }
+    .sidebar-nav ul li a {
+        justify-content: center;
+        padding: 12px 0;
+    }
+    .sidebar-nav ul li a i {
+        margin-right: 0;
+    }
+    .submenu {
+        display: none !important;
+    }
+
+    .dashboard-container.sidebar-collapsed .sidebar {
+        width: 250px; /* Reverse effect when toggled */
+    }
+    .dashboard-container.sidebar-collapsed .sidebar-header h2 {
+        display: block;
+    }
+    .dashboard-container.sidebar-collapsed .sidebar-header h2 .fa-university {
+        margin-right: 10px;
+    }
+    .dashboard-container.sidebar-collapsed .sidebar-nav ul li a span,
+    .dashboard-container.sidebar-collapsed .dropdown-icon {
+        display: inline-block;
+    }
+    .dashboard-container.sidebar-collapsed .sidebar-nav ul li a {
+        justify-content: flex-start;
+        padding: 12px 20px;
+    }
+    .dashboard-container.sidebar-collapsed .sidebar-nav ul li a i {
+        margin-right: 15px;
+    }
+    .dashboard-container.sidebar-collapsed .submenu {
+        display: none; /* Managed by JS */
+    }
+
+    .navbar-left h2 {
+        font-size: 1.5em;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: relative; /* Pour que le menu toggle soit visible */
+        order: 2; /* Met la sidebar après le contenu principal sur mobile */
+    }
+
+    .sidebar-header {
+        display: none; /* Cache l'en-tête de la sidebar sur mobile */
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .sidebar-nav ul li {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .sidebar-nav ul li a {
+        padding: 10px 15px;
+        font-size: 0.9em;
+        border-radius: 5px;
+    }
+
+    .sidebar-nav ul li a i {
+        margin-right: 8px;
+    }
+    
+    .sidebar-nav .submenu {
+        position: absolute; /* Pas idéal pour mobile sans JS avancé */
+        background-color: var(--sidebar-hover);
+        width: 100%;
+        left: 0;
+        z-index: 100;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+    
+    .dashboard-container.sidebar-collapsed .sidebar {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+        order: 1; /* Met la navbar avant le contenu principal sur mobile */
+    }
+
+    .navbar-left, .navbar-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .navbar-left {
+        margin-bottom: 15px;
+    }
+
+    .toggle-sidebar {
+        display: none; /* Cache le bouton de toggle sur mobile si le menu est déjà flex */
+    }
+    
+    .main-content {
+        order: 1; /* Place le contenu principal en premier */
+    }
+
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-left h2 {
+        font-size: 1.3em;
+        margin-left: 0;
+    }
+    .user-info span {
+        display: none; /* Cache le texte "Bonjour, Admin Uni" */
+    }
+    .logout-btn {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .recent-activity h3 {
+        font-size: 1.3em;
+    }
+}

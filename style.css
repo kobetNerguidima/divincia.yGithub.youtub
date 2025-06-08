@@ -1,0 +1,506 @@
+/* Variables CSS pour faciliter la gestion des couleurs et des espacements */
+:root {
+    --primary-color: #0056b3; /* Bleu marine, pour les actions principales et l'identité */
+    --secondary-color: #007bff; /* Bleu plus vif pour les accents */
+    --accent-color: #28a745; /* Vert pour le succès/validation */
+    --danger-color: #dc3545; /* Rouge pour les actions dangereuses (suppression) */
+    --warning-color: #ffc107; /* Jaune pour les modifications */
+    --info-color: #17a2b8; /* Cyan pour les informations/vues */
+    --text-color: #333; /* Couleur de texte foncée */
+    --light-text-color: #666; /* Couleur de texte plus claire */
+    --bg-color: #f4f7f6; /* Arrière-plan léger */
+    --card-bg-color: #ffffff; /* Fond des cartes/conteneurs */
+    --border-color: #dee2e6; /* Couleur des bordures */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Ombre légère */
+    --transition-speed: 0.3s; /* Vitesse des transitions */
+    --border-radius: 8px; /* Rayon des bordures par défaut */
+}
+
+/* Styles Généraux et Réinitialisation */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column; /* Permet le contenu et le pied de page */
+    justify-content: flex-start; /* Aligne le contenu en haut */
+    min-height: 100vh; /* La page occupe au moins toute la hauteur de la vue */
+    box-sizing: border-box; /* Inclut le padding dans la hauteur/largeur */
+}
+
+.main-content {
+    flex-grow: 1; /* Permet au contenu principal de prendre l'espace disponible */
+}
+
+/* Conteneurs et Titres */
+.container {
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    width: 100%;
+    max-width: 600px; /* Largeur maximale pour les formulaires */
+    margin: 50px auto 30px auto; /* Centre le conteneur et ajoute de la marge */
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+/* Formulaires */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espace entre les éléments du formulaire */
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+textarea,
+select {
+    width: calc(100% - 24px); /* Ajuste la largeur pour le padding */
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Très important pour la largeur */
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+textarea {
+    resize: vertical; /* Permet le redimensionnement vertical */
+    min-height: 80px;
+}
+
+/* Boutons */
+button, .btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+    text-decoration: none; /* Pour les liens stylisés en boutons */
+    display: inline-block; /* Pour que padding et margin fonctionnent sur les liens */
+    text-align: center;
+}
+
+button[type="submit"] {
+    align-self: center; /* Centre le bouton dans le formulaire flex */
+    margin-top: 20px;
+    width: 50%; /* Largeur du bouton */
+    max-width: 300px;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); /* Léger effet de soulèvement */
+}
+
+button:active, .btn:active {
+    transform: translateY(0);
+}
+
+/* Messages d'alerte */
+.message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Styles pour les tableaux de listes (ex: liste des étudiants) */
+.list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Pour que les bordures arrondies s'appliquent aux coins du tableau */
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.list-table th, .list-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.list-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.list-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.list-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Boutons d'action dans les tableaux */
+.action-buttons a, .action-buttons button {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 5px 2px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.action-buttons .edit-btn {
+    background-color: var(--warning-color); /* Jaune pour modifier */
+    color: var(--text-color);
+}
+
+.action-buttons .edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.action-buttons .delete-btn {
+    background-color: var(--danger-color); /* Rouge pour supprimer */
+    color: white;
+}
+
+.action-buttons .delete-btn:hover {
+    background-color: #c82333;
+}
+
+.action-buttons .view-btn {
+    background-color: var(--info-color); /* Cyan pour voir */
+    color: white;
+}
+
+.action-buttons .view-btn:hover {
+    background-color: #138496;
+}
+
+/* Styles spécifiques à la page d'accueil (index.php) */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/university_hero.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Hauteur minimale pour la section hero */
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: white; /* S'assurer que le titre est blanc */
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #f0f0f0; /* Texte légèrement grisé */
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne */
+    justify-content: center;
+    gap: 20px; /* Espace entre les boutons */
+}
+
+.hero-buttons .btn {
+    min-width: 200px; /* Largeur minimale pour les boutons du hero */
+}
+
+.university-presentation {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.university-presentation .card {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacement équitable du contenu */
+}
+
+.university-presentation .card:hover {
+    transform: translateY(-5px);
+}
+
+.university-presentation .card img {
+    max-width: 100%;
+    height: 200px; /* Hauteur fixe pour les images */
+    object-fit: cover; /* Recadre les images pour remplir l'espace */
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.university-presentation .card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.university-presentation .card p {
+    color: var(--light-text-color);
+    font-size: 0.95em;
+}
+
+
+/* Section Emploi du Temps */
+.schedule-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    text-align: center;
+}
+
+.schedule-section .select-filiere {
+    margin-bottom: 30px;
+}
+
+.schedule-section .select-filiere label {
+    font-size: 1.1em;
+    margin-right: 15px;
+    color: var(--text-color);
+}
+
+.schedule-section .select-filiere select {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-size: 1em;
+    width: auto; /* Largeur automatique */
+    min-width: 250px;
+}
+
+#timetable-display {
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow-x: auto; /* Permet le défilement horizontal si le tableau est trop large */
+}
+
+#timetable-display table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#timetable-display th, #timetable-display td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: center;
+    vertical-align: top; /* Aligne le contenu en haut des cellules */
+    font-size: 0.9em;
+}
+
+#timetable-display th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#timetable-display tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#timetable-display .no-schedule {
+    padding: 20px;
+    text-align: center;
+    color: var(--light-text-color);
+    font-style: italic;
+}
+
+.course-slot {
+    background-color: #e6f2ff; /* Couleur de fond pour chaque cours dans une cellule */
+    border: 1px solid #b3d9ff;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 5px; /* Espace entre plusieurs cours dans la même cellule */
+    line-height: 1.4;
+    font-size: 0.85em;
+    word-wrap: break-word; /* Casse les longs mots pour éviter le dépassement */
+}
+
+.course-slot:last-child {
+    margin-bottom: 0; /* Pas de marge en bas pour le dernier élément */
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto; /* Pousse le pied de page vers le bas */
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Media Queries pour la responsivité */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 3em;
+    }
+    .hero-section p {
+        font-size: 1.2em;
+    }
+    .university-presentation {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .list-table th, .list-table td {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 30px auto 20px auto;
+    }
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    .hero-section {
+        padding: 60px 15px;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+    .hero-buttons {
+        flex-direction: column; /* Boutons en colonne sur petits écrans */
+        gap: 15px;
+    }
+    .hero-buttons .btn {
+        width: 80%;
+    }
+    .university-presentation {
+        grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+        padding: 20px;
+    }
+    .schedule-section {
+        padding: 20px;
+    }
+    .schedule-section .select-filiere select {
+        width: 90%; /* Prend plus de largeur sur petits écrans */
+        min-width: unset; /* Supprime le min-width */
+    }
+    #timetable-display th, #timetable-display td {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 0;
+    }
+    .container {
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="password"],
+    textarea,
+    select {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    button[type="submit"] {
+        width: 95%;
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+    .action-buttons a, .action-buttons button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+}

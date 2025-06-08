@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Formations - Nom de l'Université</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+.page-banner {
+    position: relative;
+    background: url('banner-formations.jpg') no-repeat center center/cover; 
+    color: var(--white-color);
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.page-banner .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-banner h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--white-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.page-banner p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+.formations-layout {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+.sidebar-filters {
+    flex: 0 0 280px; 
+    background-color: var(--white-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    height: fit-content; 
+    position: sticky; 
+    top: 100px; 
+}
+
+.sidebar-filters h2 {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.filter-group:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.filter-group h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.filter-group h3 i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.filter-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filter-group li {
+    margin-bottom: 8px;
+}
+
+.filter-group label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--light-text-color);
+}
+
+.filter-group input[type="checkbox"] {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color); 
+}
+
+.filter-group label:hover {
+    color: var(--primary-color);
+}
+
+.search-box {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+}
+
+.search-box button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: var(--secondary-color);
+}
+
+.sidebar-filters .btn {
+    width: 100%;
+    margin-top: 15px;
+}
+.sidebar-filters .btn.reset-filters {
+    margin-top: 10px;
+    background-color: transparent;
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+.sidebar-filters .btn.reset-filters:hover {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+.formations-list {
+    flex-grow: 1;
+}
+
+.formations-list h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.formation-card {
+    background-color: var(--white-color);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+.formation-card h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.formation-card .meta {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+
+.formation-card p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.formation-card .btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+.admission-cta {
+    padding: 60px 0;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.admission-cta h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.admission-cta p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.admission-cta .btn {
+    margin: 0 10px;
+}
+@media (max-width: 992px) {
+    .formations-layout {
+        flex-direction: column;
+    }
+    .sidebar-filters {
+        width: 100%;
+        position: static; 
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-banner h1 {
+        font-size: 2.2em;
+    }
+    .page-banner p {
+        font-size: 1em;
+    }
+    .formations-list h2 {
+        font-size: 1.8em;
+        text-align: center;
+    }
+    .admission-cta h2 {
+        font-size: 1.8em;
+    }
+    .admission-cta .btn {
+        display: block;
+        width: 90%;
+        margin: 15px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-filters {
+        padding: 15px;
+    }
+    .search-box input, .search-box button {
+        font-size: 0.9em;
+    }
+    .filter-group h3 {
+        font-size: 1.1em;
+    }
+    .filter-group label {
+        font-size: 0.9em;
+    }
+    .formation-card {
+        padding: 20px;
+    }
+    .formation-card h3 {
+        font-size: 1.4em;
+    }
+    .formation-card p {
+        font-size: 0.9em;
+    }
+}
+</style>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="image estm\télécharger (1).jpeg" alt="Logo de l'Université">
+                    <h1>ESTM</h1>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projet2.html">À propos</a></li>
+                    <li><a href="formations.html" class="active">Formations</a></li> <li><a href="recherche.html">Recherche</a></li>
+                    <li><a href="vie-etudiante.html">Vie étudiante</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1>Nos Formations</h1>
+            <p>Explorez notre vaste catalogue de programmes, conçus pour vous préparer aux carrières de demain.</p>
+        </div>
+        <div class="banner-overlay"></div>
+    </section>
+
+    <main class="formations-page-content">
+        <div class="container">
+            <div class="formations-layout">
+                <aside class="sidebar-filters">
+                    <h2>Filtrer les formations</h2>
+                    <div class="filter-group">
+                        <h3><i class="fas fa-search"></i> Rechercher</h3>
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Nom de la formation...">
+                            <button onclick="filterFormations()"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3><i class="fas fa-layer-group"></i> Par Niveau d'Études</h3>
+                        <ul>
+                            <li><input type="checkbox" id="niveauLicence" value="Licence"><label for="niveauLicence">Licence</label></li>
+                            <li><input type="checkbox" id="niveauMaster" value="Master"><label for="niveauMaster">Master</label></li>
+                            <li><input type="checkbox" id="niveauDoctorat" value="Doctorat"><label for="niveauDoctorat">Doctorat</label></li>
+                            <li><input type="checkbox" id="niveauDU" value="DU"><label for="niveauDU">Diplômes Universitaires</label></li>
+                            <li><input type="checkbox" id="niveauFC" value="Formation Continue"><label for="niveauFC">Formation Continue</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3><i class="fas fa-sitemap"></i> Par Domaine</h3>
+                        <ul>
+                            <li><input type="checkbox" id="domaineScience" value="Sciences"><label for="domaineScience">Sciences & Technologies</label></li>
+                            <li><input type="checkbox" id="domaineLettres" value="Lettres"><label for="domaineLettres">Lettres & Sciences Humaines</label></li>
+                            <li><input type="checkbox" id="domaineDroit" value="Droit"><label for="domaineDroit">Droit & Sciences Politiques</label></li>
+                            <li><input type="checkbox" id="domaineEcoGes" value="Économie-Gestion"><label for="domaineEcoGes">Économie & Gestion</label></li>
+                            <li><input type="checkbox" id="domaineSante" value="Santé"><label for="domaineSante">Santé</label></li>
+                            <li><input type="checkbox" id="domaineComm" value="Communication"><label for="domaineComm">Communication & Médias</label></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary apply-filters">Appliquer les filtres</button>
+                    <button class="btn btn-outline reset-filters">Réinitialiser les filtres</button>
+                </aside>
+
+                <section class="formations-list">
+                    <h2>Notre Catalogue de Programmes</h2>
+
+                    <article class="formation-card" data-niveau="Licence" data-domaine="Sciences">
+                        <h3>Licence Sciences Informatiques</h3>
+                        <p class="meta">Niveau: Licence | Domaine: Sciences & Technologies</p>
+                        <p>Découvrez les fondements de l'informatique, de la programmation aux bases de données et au développement web.</p>
+                        <a href="formation-info.html" class="btn btn-small btn-primary">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="formation-card" data-niveau="Master" data-domaine="Économie-Gestion">
+                        <h3>Master Marketing Digital et E-commerce</h3>
+                        <p class="meta">Niveau: Master | Domaine: Économie & Gestion</p>
+                        <p>Maîtrisez les stratégies marketing en ligne et les techniques de vente pour le commerce électronique.</p>
+                        <a href="formation-marketing.html" class="btn btn-small btn-primary">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="formation-card" data-niveau="Licence" data-domaine="Lettres">
+                        <h3>Licence Lettres Modernes</h3>
+                        <p class="meta">Niveau: Licence | Domaine: Lettres & Sciences Humaines</p>
+                        <p>Plongez au cœur de la littérature française et étrangère, de la linguistique et de l'analyse textuelle.</p>
+                        <a href="formation-lettres.html" class="btn btn-small btn-primary">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="formation-card" data-niveau="Doctorat" data-domaine="Sciences">
+                        <h3>Doctorat en Intelligence Artificielle</h3>
+                        <p class="meta">Niveau: Doctorat | Domaine: Sciences & Technologies</p>
+                        <p>Développez une expertise de pointe en IA et contribuez à la recherche fondamentale et appliquée.</p>
+                        <a href="formation-phd-ia.html" class="btn btn-small btn-primary">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="formation-card" data-niveau="DU" data-domaine="Santé">
+                        <h3>DU Nutrition et Santé Publique</h3>
+                        <p class="meta">Niveau: Diplôme Universitaire | Domaine: Santé</p>
+                        <p>Acquérez des compétences sur les enjeux de la nutrition et leur impact sur la santé des populations.</p>
+                        <a href="formation-du-nutrition.html" class="btn btn-small btn-primary">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="formation-card" data-niveau="Master" data-domaine="Droit">
+                        <h3>Master Droit des Affaires Internationales</h3>
+                        <p class="meta">Niveau: Master | Domaine: Droit & Sciences Politiques</p>
+                        <p>Spécialisez-vous dans le droit commercial international, les contrats et les litiges transfrontaliers.</p>
+                        <a href="formation-droit-aff.html" class="btn btn-small btn-primary">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    </section>
+            </div>
+
+            <section class="admission-cta bg-light">
+                <div class="text-center">
+                    <h2>Prêt(e) à commencer votre parcours ?</h2>
+                    <p>Nos équipes sont à votre disposition pour vous guider à travers le processus d'admission.</p>
+                    <a href="admission.html" class="btn btn-primary btn-lg">Accéder aux Admissions <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn btn-outline btn-lg">Contacter le Service <i class="fas fa-phone"></i></a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-uni">
+                    <h3>Nom de l'Université</h3>
+                    <p>Fondée en 2002, l'Université de l'Excellence s'engage à offrir une éducation de qualité supérieure et à promouvoir la recherche innovante.</p>
+                </div>
+                <div class="footer-col quick-links">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="a-propos.html">À propos de nous</a></li>
+                        <li><a href="carrieres.html">Carrières</a></li>
+                        <li><a href="mentions-legales.html">Mentions Légales</a></li>
+                        <li><a href="plan-du-site.html">Plan du site</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Université, Ville, Pays</p>
+                    <p><i class="fas fa-phone"></i> +212 612 83 2594</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@universite.ma">info@universite.ma</a></p>
+                </div>
+                <div class="footer-col social-media">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/votre_universite" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/votre_universite" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/school/votre_universite" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/votre_universite" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ESTM JeffersonNerguidima. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            const filterCheckboxes = document.querySelectorAll('.sidebar-filters input[type="checkbox"]');
+            const searchInput = document.getElementById('searchInput');
+            const applyFiltersBtn = document.querySelector('.apply-filters');
+            const resetFiltersBtn = document.querySelector('.reset-filters');
+            const formationCards = document.querySelectorAll('.formation-card');
+
+            function applyFilters() {
+                const selectedNiveaux = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"][id^="niveau"]:checked'))
+                                         .map(checkbox => checkbox.value);
+                const selectedDomaines = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"][id^="domaine"]:checked'))
+                                           .map(checkbox => checkbox.value);
+                const searchTerm = searchInput.value.toLowerCase().trim();
+
+                formationCards.forEach(card => {
+                    const niveau = card.dataset.niveau;
+                    const domaine = card.dataset.domaine;
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p:nth-of-type(2)').textContent.toLowerCase(); 
+
+                    let matchesNiveau = selectedNiveaux.length === 0 || selectedNiveaux.includes(niveau);
+                    let matchesDomaine = selectedDomaines.length === 0 || selectedDomaines.includes(domaine);
+                    let matchesSearch = searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm);
+
+                    if (matchesNiveau && matchesDomaine && matchesSearch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            applyFiltersBtn.addEventListener('click', applyFilters);
+
+            resetFiltersBtn.addEventListener('click', function() {
+                filterCheckboxes.forEach(checkbox => checkbox.checked = false);
+                searchInput.value = '';
+                applyFilters(); 
+            });
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    applyFilters();
+                } else if (searchInput.value === '') { 
+                     applyFilters();
+                }
+            });
+            applyFilters();
+        });
+    </script>
+</body>
+</html>

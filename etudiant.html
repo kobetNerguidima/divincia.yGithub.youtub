@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Étudiant - Université ESTM</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #0056b3; 
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #004085; 
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.content-section {
+    margin-bottom: 40px;
+    padding-top: 20px; 
+}
+
+.section-title {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #0056b3;
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.card p {
+    font-size: 0.95em;
+    color: #555;
+    min-height: 40px; 
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff; 
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3; 
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+@media (max-width: 768px) {
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+<body>
+    <header>
+        <h1>Bienvenue aux Étudiants !</h1>
+        <nav>
+            <ul>
+                <li><a href="#academique">Vie Académique</a></li>
+                <li><a href="#campus">Vie sur le Campus</a></li>
+                <li><a href="#carriere">Carrière & Emploi</a></li>
+                 <li><a href="emploietud.html">emploie du temps</a></li>
+                <li><a href="#admin">Infos Pratiques</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="academique" class="content-section">
+            <h2 class="section-title">Ressources Académiques</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Programmes d'Études</h3>
+                    <p>Découvrez tous nos diplômes et spécialisations.</p>
+                    <a href="/programmes.html" class="button">Explorer les programmes</a>
+                </div>
+                <div class="card">
+                    <h3>Emplois du Temps & Examens</h3>
+                    <p>Accédez aux horaires des cours et aux dates d'examens.</p>
+                    <a href="/calendrier.html" class="button">Voir le calendrier</a>
+                </div>
+                <div class="card">
+                    <h3>Bibliothèque Universitaire</h3>
+                    <p>Ressources en ligne, salles d'étude et support à la recherche.</p>
+                    <a href="/bibliotheque.html" class="button">Accéder à la bibliothèque</a>
+                </div>
+                 <div class="card">
+                    <h3>Soutien Pédagogique</h3>
+                    <p>Tutorat, aide à la rédaction et méthodes de travail.</p>
+                    <a href="/soutien-pedagogique.html" class="button">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="campus" class="content-section">
+            <h2 class="section-title">Vie sur le Campus</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Clubs & Associations</h3>
+                    <p>Engagez-vous dans la vie étudiante, découvrez nos associations.</p>
+                    <a href="/associations.html" class="button">Voir les clubs</a>
+                </div>
+                <div class="card">
+                    <h3>Événements Étudiants</h3>
+                    <p>Ne manquez aucun événement sur le campus : sports, culture, festivités.</p>
+                    <a href="/evenements.html" class="button">Calendrier des événements</a>
+                </div>
+                <div class="card">
+                    <h3>Santé & Bien-être</h3>
+                    <p>Services médicaux, psychologiques et programmes de bien-être.</p>
+                    <a href="/sante.html" class="button">Découvrir les services</a>
+                </div>
+                 <div class="card">
+                    <h3>Logement & Restauration</h3>
+                    <p>Informations sur les résidences et les options de restauration.</p>
+                    <a href="/logement.html" class="button">Guides pratiques</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="carriere" class="content-section">
+            <h2 class="section-title">Carrière & Emploi</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Offres de Stages & Emplois</h3>
+                    <p>Trouvez votre prochain stage ou votre premier emploi.</p>
+                    <a href="/stages-emplois.html" class="button">Consulter les offres</a>
+                </div>
+                <div class="card">
+                    <h3>Services Carrière</h3>
+                    <p>Aide à la rédaction de CV, préparation aux entretiens, conseils.</p>
+                    <a href="/services-carriere.html" class="button">Accéder au service</a>
+                </div>
+                 <div class="card">
+                    <h3>Forum Entreprises</h3>
+                    <p>Rencontrez des employeurs et développez votre réseau.</p>
+                    <a href="/forum-entreprises.html" class="button">Participer au forum</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="content-section">
+            <h2 class="section-title">Informations Pratiques & Administratives</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Inscriptions & Frais</h3>
+                    <p>Toutes les informations sur l'inscription et la scolarité.</p>
+                    <a href="enregistrement.html" class="button">Guide d'inscription</a>
+                </div>
+                <div class="card">
+                    <h3>Bourses & Aides</h3>
+                    <p>Découvrez les dispositifs d'aide financière disponibles.</p>
+                    <a href="/bourses.html" class="button">Demander une bourse</a>
+                </div>
+                <div class="card">
+                    <h3>Contacts Utiles</h3>
+                    <p>Annuaire des services et départements universitaires.</p>
+                    <a href="/contacts-utiles.html" class="button">Voir les contacts</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Université ESTM JeffersonNerguidima. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

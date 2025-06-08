@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIVERSITE</title>
+</head>
+<style>
+.nav-links {
+    list-style: none;
+    margin: 1%;
+    padding: 2%;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center; 
+    height: 0px; 
+}
+
+img{
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    height: 90%;
+}
+body{
+    margin: 0;
+    padding-top: 60px;
+    font-family: sans-serif;
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 40;
+    background-color: rgb(143, 238, 202);
+    z-index: 100;
+}
+.navbar nav ul li {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+</style>
+<body>
+    <h1>
+        <nav class="navbar">
+        <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i></a>
+            </li>
+            
+             <li class="nav-item has-dropdown">
+                <a href="info.html">Administration</a> 
+            </li>
+            <li class="nav-item has-dropdown">
+                <a href="etudiant.html" class="nav-link">Etudiant <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li class="nav-item has-dropdown">
+                <a href="enseignant.html" class="nav-link">Enseignant<i class="fas fa-chevron-down"></i></a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+        </ul>   </li>
+    </nav>        
+    </h1>
+    <img src="image estm/1583801271990.jpeg" alt="">
+    
+</body>
+</html>

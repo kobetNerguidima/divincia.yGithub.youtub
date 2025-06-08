@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de nous - Université ESTM</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        .intro-section {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+            background-color: #e6f0ff; 
+            border-radius: 8px;
+        }
+
+        .intro-section p {
+            font-size: 1.15em;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .image-full-width {
+            width: 100%;
+            height: 400px;
+            object-fit: cover; 
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-block {
+            margin-bottom: 40px;
+            padding: 0 20px; 
+        }
+
+        .text-block h3 {
+            color: #0056b3;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .text-block p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .values-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .values-list li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .values-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .values-list li h4 {
+            color: #007bff;
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .values-list li p {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .leadership-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .leadership-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .leadership-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .leadership-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            max-width: 250px;
+            width: 100%;
+        }
+
+        .leadership-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #0056b3;
+        }
+
+        .leadership-card h4 {
+            color: #0056b3;
+            margin-bottom: 5px;
+        }
+
+        .leadership-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .intro-section {
+                padding: 15px;
+            }
+            .image-full-width {
+                height: 250px;
+            }
+            .text-block {
+                padding: 0 10px;
+            }
+            .text-block h3 {
+                font-size: 1.5em;
+            }
+            .values-list {
+                grid-template-columns: 1fr;
+            }
+            .leadership-card {
+                max-width: 100%;
+            }
+        }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #0056b3; 
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #004085;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.content-section {
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.section-title {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+@media (max-width: 768px) {
+    header nav ul li {
+        margin: 5px 10px;
+    }
+    .section-title {
+        font-size: 1.8em;
+    }
+}
+.button.button-small {
+    padding: 8px 12px;
+    font-size: 0.85em;
+    margin-top: 10px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>À propos de l'Université ESTM</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="etudiant.html">Étudiant</a></li>
+                <li><a href="enseignant.html">Enseignant</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section intro-section">
+            <h2 class="section-title">Notre Engagement envers l'Excellence</h2>
+            <p>
+                Depuis sa fondation en 2002, l'Université ESTM s'est engagée à offrir une éducation de premier ordre, à mener des recherches innovantes et à contribuer activement au développement de la société. Située à Meknès, au cœur de la région de Fès-Meknès, notre institution est un pilier de l'enseignement supérieur, formant les leaders et les innovateurs de demain.
+            </p>
+        </section>
+
+        <img src="image estm/jeff.png" alt="Campus de l'Université" class="image-full-width">
+
+        <section class="content-section">
+            <div class="text-block">
+                <h3>Notre Mission</h3>
+                <p>
+                    La mission de l'Université ESTM est de former des citoyens éclairés, responsables et compétents, capables de relever les défis complexes du 21e siècle. Nous nous engageons à promouvoir la recherche scientifique et technologique, à diffuser le savoir et à favoriser l'innovation au service de la communauté nationale et internationale.
+                </p>
+            </div>
+
+            <div class="text-block">
+                <h3>Notre Histoire</h3>
+                <p>
+                    Fondée en 2002 par JeffersonNerguidima-Kobet, l'Université ESTM a évolué d'un petit collège à une institution multidisciplinaire de renom. Au fil des décennies, nous avons bâti une réputation d'excellence académique, marquée par des jalons importants comme .
+                </p>
+                <p>
+                    Aujourd'hui, nous continuons d'écrire notre histoire, en nous adaptant aux besoins changeants du monde et en formant des générations de diplômés qui font la différence.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Nos Valeurs Fondamentales</h2>
+            <ul class="values-list">
+                <li>
+                    <h4>Excellence</h4>
+                    <p>Poursuite constante de la qualité dans l'enseignement, la recherche et le service.</p>
+                </li>
+                <li>
+                    <h4>Innovation</h4>
+                    <p>Encourager la créativité, la découverte et l'application de nouvelles idées.</p>
+                </li>
+                <li>
+                    <h4>Intégrité</h4>
+                    <p>Respect des principes éthiques, de l'honnêteté et de la transparence.</p>
+                </li>
+                <li>
+                    <h4>Diversité & Inclusion</h4>
+                    <p>Création d'un environnement accueillant et respectueux pour tous, valorisant les différences.</p>
+                </li>
+                <li>
+                    <h4>Engagement Communautaire</h4>
+                    <p>Contribution active au développement social, économique et culturel de la région et au-delà.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="content-section leadership-section">
+            <h2 class="section-title">Notre Direction</h2>
+            <p style="margin-bottom: 30px; color: #555;">Rencontrez les leaders qui guident notre université vers l'avenir.</p>
+            <div class="leadership-card-container">
+                <div class="leadership-card">
+                    <img src="image estm/WhatsApp Image 2025-03-20 at 10.59.09_6aad4003.jpg" alt="Photo du Président">
+                    <h4>JeffersonNerguidima Kobet</h4>
+                    <p>Président de l'Université</p>
+                    <a href="/profil-president.html" class="button button-small">Profil</a>
+                </div>
+                <div class="leadership-card">
+                    <img src="image estm/IMG-20250212-WA0058.jpg" alt="Photo du Vice-Président">
+                    <h4>Dieu-Merci</h4>
+                    <p>Vice-Président aux Affaires Académiques</p>
+                    <a href="/profil-vice-president.html" class="button button-small">Profil</a>
+                </div>
+                <div class="leadership-card">
+                    <img src="image estm\IMG-20250131-WA0049.jpg" alt="Photo du Secrétaire Général">
+                    <h4>Chrit</h4>
+                    <p>Secrétaire Général</p>
+                    <a href="/profil-secretaire.html" class="button button-small">Profil</a>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Université ESTM JeffersonNerguidima. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

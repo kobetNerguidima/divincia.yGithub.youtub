@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous - Université ESTM JeffersonNerguidima</title>
+    <link rel="stylesheet" href="style.css"> <style>
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info div {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3 {
+            color: #0056b3;
+            margin-top: 0;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 20px); 
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            resize: vertical; 
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .department-contacts {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .department-contacts h2 {
+            color: #0056b3;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        .department-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .department-list li {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .department-list li strong {
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .department-list li span {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        .department-list li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .department-list li a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .contact-info div {
+                min-width: unset;
+                width: 100%;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+            .department-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #0056b3; 
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #004085;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.content-section {
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.section-title {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+@media (max-width: 768px) {
+    header nav ul li {
+        margin: 5px 10px;
+    }
+    .section-title {
+        font-size: 1.8em;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contactez l'Université ESTM JeffersonNerguidima</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li> <li><a href="etudiant.html">Étudiant</a></li>
+                <li><a href="enseignant.html">Enseignant</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2 class="section-title">Informations Générales de Contact</h2>
+            <div class="contact-info">
+                <div>
+                    <h3>Adresse Postale</h3>
+                    <p>ESTMjf@.m</p>
+                    <p>500mecknes</p>
+                </div>
+                <div>
+                    <h3>Téléphone Principal</h3>
+                    <p><a href="tel:+[Numéro de Téléphone]">+236 72 93 49 35//212 612 8325 94</a></p>
+                    <p>Disponible du Lundi au Vendredi</p>
+                    <p>8H00min</p>
+                </div>
+                <div>
+                    <h3>Adresse E-mail Générale</h3>
+                    <p><a href="mailto:contact@[votreuniversite.com]">contact@ESTM JeffersonNerguidima</a></p>
+                    <p>Pour les questions générales</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Envoyez-nous un Message</h2>
+            <div class="contact-form">
+                <form action="process_inscription.php" method="POST">
+                    <label for="name">Votre Nom :</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Votre E-mail :</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Sujet :</label>
+                    <input type="text" id="subject" name="subject">
+
+                    <label for="message">Votre Message :</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Envoyer le Message</button>
+                </form>
+                <p style="text-align: center; font-size: 0.9em; color: #777; margin-top: 20px;">
+                    *Ce formulaire envoie un e-mail à notre service d'accueil. Pour des demandes spécifiques, veuillez consulter les contacts ci-dessous.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section department-contacts">
+            <h2 class="section-title">Contacts par Service</h2>
+            <p style="margin-bottom: 25px; color: #555;">Trouvez le contact direct pour votre requête spécifique.</p>
+            <ul class="department-list">
+                <li>
+                    <strong>Admissions :</strong>
+                    <span><a href="mailto:admissions@[votreuniversite.com]">admissions@ESTM JeffersonNerguidima</a></span>
+                    <span>/ Tél : 212 612 8325 94</span>
+                </li>
+                <li>
+                    <strong>Scolarité :</strong>
+                    <span><a href="mailto:scolarite@[votreuniversite.com]">scolarite@ESTM JeffersonNerguidima</a></span>
+                    <span>/ Tél : +236 72 93 49 35 </span>
+                </li>
+                <li>
+                    <strong>Ressources Humaines :</strong>
+                    <span><a href="mailto:rh@[votreuniversite.com]">rh@ESTM JeffersonNerguidima</a></span>
+                    <span>/ Tél :  +236 72 93 49 35</span>
+                </li>
+                <li>
+                    <strong>Partenariats Internationaux :</strong>
+                    <span><a href="mailto:international@[votreuniversite.com]">international@ESTM</a></span>
+                    <span>/ Tél : 212 612 83 2594</span>
+                </li>
+                <li>
+                    <strong>Support Informatique :</strong>
+                    <span><a href="mailto:support-it@[votreuniversite.com]">support-it@ESTM JeffersonNerguidima</a></span>
+                    <span>/ Tél :+236 72 93 49 35</span>
+                </li>
+                </ul>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Localisation</h2>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20600.32288079148!2d-5.5684617!3d33.8935147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9c20f1b2c1b7e1%3A0x6b8f3a3f5f3a3f5!2s[Nom de votre Université à Meknès]!5e0!3m2!1sfr!2sma!4v1700000000000!5m2!1sfr!2sma" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p style="margin-top: 15px; color: #555;">Venez nous rendre visite sur le campus !</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Université ESTM JeffersonNerguidima. droits réservés.</p>
+    </footer>
+</body>
+</html>

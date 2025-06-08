@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emploi du Temps Étudiant - Université [Nom de votre Université]</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques pour les tableaux d'emploi du temps */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .schedule-table th {
+            background-color: #0056b3; /* Bleu de l'université */
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .schedule-table tr:hover {
+            background-color: #e6f0ff; /* Léger bleu au survol */
+        }
+
+        .schedule-table td:first-child {
+            background-color: #f0f0f0; /* Couleur pour la colonne des heures */
+            font-weight: bold;
+            color: #333;
+        }
+
+        .course-details {
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .course-details strong {
+            display: block; /* Le titre du cours sur une nouvelle ligne */
+            color: #0056b3;
+            margin-bottom: 5px;
+        }
+
+        .course-details span {
+            display: block; /* Chaque détail sur une nouvelle ligne */
+        }
+
+        /* Message d'information */
+        .info-message {
+            background-color: #fff3cd; /* Couleur jaune clair */
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Responsive pour les tableaux */
+        @media (max-width: 768px) {
+            .schedule-table, .schedule-table tbody, .schedule-table thead, .schedule-table th, .schedule-table td, .schedule-table tr {
+                display: block;
+            }
+
+            .schedule-table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            .schedule-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .schedule-table td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+                text-align: left;
+            }
+
+            .schedule-table td:before {
+                position: absolute;
+                top: 0;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label); /* Utilise l'attribut data-label pour afficher l'en-tête */
+                font-weight: bold;
+                color: #0056b3;
+            }
+
+            .schedule-table td:first-child {
+                background-color: #e6f0ff; /* Fond bleu clair pour l'heure sur mobile */
+                text-align: center;
+                padding-left: 6px;
+            }
+        }
+        /* Ajoutez ces styles à votre fichier style.css principal */
+
+/* Styles généraux pour les tableaux d'emploi du temps */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.schedule-table th {
+    background-color: #0056b3; /* Bleu de l'université */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.schedule-table tr:hover {
+    background-color: #e6f0ff; /* Léger bleu au survol */
+}
+
+.schedule-table td:first-child {
+    background-color: #f0f0f0; /* Couleur pour la colonne des heures */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles pour les détails des cours/activités dans les cellules */
+.course-details, .activity-details {
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.course-details strong, .activity-details strong {
+    display: block; /* Le titre sur une nouvelle ligne */
+    color: #0056b3;
+    margin-bottom: 5px;
+}
+
+.course-details span, .activity-details span {
+    display: block; /* Chaque détail sur une nouvelle ligne */
+}
+
+/* Message d'information/alerte */
+.info-message {
+    background-color: #fff3cd; /* Couleur jaune clair */
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Styles Responsifs pour les tableaux (très important pour la lisibilité sur mobile) */
+@media (max-width: 768px) {
+    .schedule-table, .schedule-table tbody, .schedule-table thead, .schedule-table th, .schedule-table td, .schedule-table tr {
+        display: block; /* Chaque ligne et cellule devient un bloc */
+    }
+
+    .schedule-table thead tr {
+        position: absolute; /* Cache les en-têtes du tableau original sur mobile */
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .schedule-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden; /* Assure que les coins arrondis sont respectés */
+    }
+
+    .schedule-table td {
+        border: none; /* Supprime les bordures entre les cellules mobiles */
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* Laisse de la place pour l'étiquette */
+        text-align: left; /* Alignement du texte à gauche */
+    }
+
+    .schedule-table td:before {
+        position: absolute;
+        top: 0;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label); /* Affiche l'en-tête de colonne (jour/heure) */
+        font-weight: bold;
+        color: #0056b3;
+    }
+
+    .schedule-table td:first-child {
+        background-color: #e6f0ff; /* Fond légèrement différent pour l'heure sur mobile */
+        text-align: center;
+        padding-left: 6px;
+        font-size: 1.1em;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Emploi du Temps Étudiant</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="etudiant.html">Espace Étudiant</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2 class="section-title">Emploi du Temps - Licence 1 - Semestre 1</h2>
+
+            <div class="info-message">
+                *Note importante :* Cet emploi du temps est sujet à modifications. Veuillez consulter régulièrement cette page et votre portail étudiant pour les dernières mises à jour.
+            </div>
+
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Heure</th>
+                        <th>Lundi</th>
+                        <th>Mardi</th>
+                        <th>Mercredi</th>
+                        <th>Jeudi</th>
+                        <th>Vendredi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Heure">08:00 - 10:00</td>
+                        <td data-label="Lundi">
+                            <div class="course-details">
+                                <strong>Introduction à l'Informatique</strong>
+                                <span>Salle : B101</span>
+                                <span>Prof : Dr. Dupont</span>
+                            </div>
+                        </td>
+                        <td data-label="Mardi">Libre</td>
+                        <td data-label="Mercredi">
+                            <div class="course-details">
+                                <strong>Mathématiques I</strong>
+                                <span>Salle : A203</span>
+                                <span>Prof : Pr. Martin</span>
+                            </div>
+                        </td>
+                        <td data-label="Jeudi">Libre</td>
+                        <td data-label="Vendredi">
+                            <div class="course-details">
+                                <strong>Français des Affaires</strong>
+                                <span>Salle : C105</span>
+                                <span>Prof : Mme. Dubois</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Heure">10:00 - 12:00</td>
+                        <td data-label="Lundi">
+                            <div class="course-details">
+                                <strong>Anglais Général</strong>
+                                <span>Salle : C105</span>
+                                <span>Prof : Mme. Lefebvre</span>
+                            </div>
+                        </td>
+                        <td data-label="Mardi">
+                            <div class="course-details">
+                                <strong>Mathématiques I (TD)</strong>
+                                <span>Salle : B201</span>
+                                <span>Prof : M. Bernard</span>
+                            </div>
+                        </td>
+                        <td data-label="Mercredi">Libre</td>
+                        <td data-label="Jeudi">
+                            <div class="course-details">
+                                <strong>Fondamentaux de l'Économie</strong>
+                                <span>Salle : A102</span>
+                                <span>Prof : Dr. Moreau</span>
+                            </div>
+                        </td>
+                        <td data-label="Vendredi">Libre</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Heure">12:00 - 14:00</td>
+                        <td colspan="5" data-label="Pause Déjeuner" style="background-color: #f0f8ff;">PAUSE DÉJEUNER</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Heure">14:00 - 16:00</td>
+                        <td data-label="Lundi">Libre</td>
+                        <td data-label="Mardi">
+                            <div class="course-details">
+                                <strong>Introduction à l'Informatique (TP)</strong>
+                                <span>Salle : Labo Info 1</span>
+                                <span>Prof : Dr. Dupont</span>
+                            </div>
+                        </td>
+                        <td data-label="Mercredi">
+                            <div class="course-details">
+                                <strong>Histoire Contemporaine</strong>
+                                <span>Salle : B102</span>
+                                <span>Prof : Pr. Leroy</span>
+                            </div>
+                        </td>
+                        <td data-label="Jeudi">
+                            <div class="course-details">
+                                <strong>Droit Constitutionnel</strong>
+                                <span>Salle : A201</span>
+                                <span>Prof : Pr. Charles</span>
+                            </div>
+                        </td>
+                        <td data-label="Vendredi">
+                            <div class="course-details">
+                                <strong>Projet Tutoré</strong>
+                                <span>Salle : Salles de groupe</span>
+                                <span>Prof : Tuteur désigné</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Heure">16:00 - 18:00</td>
+                        <td data-label="Lundi">
+                            <div class="course-details">
+                                <strong>Méthodologie Universitaire</strong>
+                                <span>Salle : C201</span>
+                                <span>Prof : Mme. Robert</span>
+                            </div>
+                        </td>
+                        <td data-label="Mardi">Libre</td>
+                        <td data-label="Mercredi">Libre</td>
+                        <td data-label="Jeudi">Libre</td>
+                        <td data-label="Vendredi">Libre</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Université ESTM JeffersonNerguidima. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

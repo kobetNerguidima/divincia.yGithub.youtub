@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration Université - Tableau de Bord</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-university"></i> Admin JeffersonNerguidima</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#"><i class="fas fa-users"></i> Gestion des Utilisateurs <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Étudiants</a></li>
+                            <li><a href="#">Professeurs</a></li>
+                            <li><a href="#">Personnel</a></li>
+                            <li><a href="#">Rôles & Permissions</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#"><i class="fas fa-book-open"></i> Académique <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Formations</a></li>
+                            <li><a href="#">Cours</a></li>
+                            <li><a href="enregistrement.html">Inscriptions</a></li>
+                            <li><a href="#">Notes & Examens</a></li>
+                            <li><a href="#">Emplois du temps</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-dollar-sign"></i> Finance</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#"><i class="fas fa-globe"></i> Contenu Web <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Actualités</a></li>
+                            <li><a href="#">Événements</a></li>
+                            <li><a href="#">Pages du site</a></li>
+                            <li><a href="#">Médias</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Rapports</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i> Paramètres</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="navbar">
+                <div class="navbar-left">
+                    <button class="toggle-sidebar" aria-label="Toggle Sidebar"><i class="fas fa-bars"></i></button>
+                    <h2>Tableau de Bord</h2>
+                </div>
+                <div class="navbar-right">
+                    <div class="user-info">
+                        <span>Bonjour, Admin Uni</span>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <section class="dashboard-overview">
+                    <div class="stats-cards">
+                        <div class="card">
+                            <i class="fas fa-user-graduate"></i>
+                            <h3>Total Étudiants</h3>
+                            <p>12 500</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <h3>Total Professeurs</h3>
+                            <p>850</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-book"></i>
+                            <h3>Cours Actifs</h3>
+                            <p>320</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Événements à Venir</h3>
+                            <p>12</p>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h3>Activités Récentes</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle text-success"></i> Nouvelle inscription: *Ahmed Z. (Licence Info)* - 05 Juin 2025</li>
+                            <li><i class="fas fa-envelope text-info"></i> Nouveau message de *Pr. Dupont* - 04 Juin 2025</li>
+                            <li><i class="fas fa-exclamation-triangle text-warning"></i> Mise à jour des notes *Master 1* requise - 03 Juin 2025</li>
+                            <li><i class="fas fa-newspaper text-primary"></i> Nouvelle actualité publiée: *"Cérémonie de remise des diplômes"* - 02 Juin 2025</li>
+                        </ul>
+                    </div>
+
+                    </section>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript pour le menu déroulant (submenu) et le toggle de la sidebar
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.menu-item-has-children > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('active');
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                    }
+                });
+            });
+
+            const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
+            const dashboardContainer = document.querySelector('.dashboard-container');
+
+            if (toggleSidebarBtn && dashboardContainer) {
+                toggleSidebarBtn.addEventListener('click', function() {
+                    dashboardContainer.classList.toggle('sidebar-collapsed');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
